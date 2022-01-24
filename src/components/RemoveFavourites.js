@@ -1,5 +1,5 @@
 import React from 'react';
-const RemoveFavourites = () => {
+const RemoveFavourites = (isOpen) => {
 	return (
 		<>
 			<svg

@@ -7,28 +7,25 @@ function PopUpDetails({ selected, openPopup, isOpen }) {
 		<>
 			<img className={`close ${isOpen === true ? 'active' : ''}`} onClick={openPopup} src={cross} />
 			<div className="sd-header">
-				<h2 className="popUpTitle">{selected.title}</h2>
+				<h5 className="popUpTitle">{selected.title}</h5>
 			</div>
-			<div className="sd-body">
-				<ul>
+			<div className="sd-body row">				    
 					<img className="sidebarimg" src={selected.imageUrl}
-					/>
-					<p className="details">Rating :&nbsp;&nbsp;  {selected.rank}/5</p>
-					<p className="synopsis">{selected.synopsis && selected.synopsis.substr(0, 350)}</p>
-					<div>
-						<p className="genreHeading">Genre : &nbsp;&nbsp;
+					/>				
+					<p className="details">Rating :&nbsp;&nbsp;  {selected.rank}/5
+					<p className="genreHeading">Genre : &nbsp;&nbsp;
 							<button className="genre">
 								{selected.genre}
-
 							</button></p>
-					</div>
-					<button className="watchlistBtn" onClick={(e) => {
+							
+							<button className="genre" onClick={(e) => {
 						e.preventDefault();
 						window.location.href = selected.link;
 					}}>
 						<img className="share" src={forward} />&nbsp;&nbsp;  Share
-					</button>
-				</ul>
+					</button>			
+					</p>				
+					<p className="synopsis">{selected.synopsis && selected.synopsis.substr(0, 350)}</p>		
 			</div>
 		</>
 	)

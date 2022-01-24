@@ -35,10 +35,30 @@ const App = () => {
 	useEffect(() => {
 		getMovieRequest();
 	}, []);
+
 	const addFavouriteMovie = (movie) => {
+		console.log("movie:::"+JSON.stringify(movie));
 		const newFavouriteList = [...favourites, movie];
-		setFavourites(newFavouriteList);
-		saveToLocalStorage(newFavouriteList);
+		const data=[...favourites];
+
+		console.log("favourites:::"+JSON.stringify(favourites));
+		newFavouriteList.map((item,index)=>
+		{
+			if(favourites.length>0&&favourites[index].id===movie.id)
+			{
+				setFavourites(data);
+				saveToLocalStorage(data);
+			}
+			else
+			{
+				setFavourites(newFavouriteList);
+				saveToLocalStorage(newFavouriteList);
+			}
+
+		})
+
+		
+		
 	};
 	const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
@@ -58,7 +78,8 @@ const App = () => {
 				openPopup={openPopup}
 				handleFavouritesClick={addFavouriteMovie}
 				buttontext={movies}
-				favouriteComponent={AddFavourites}			
+				favouriteComponent={AddFavourites}
+				isOpen={isOpen}			
 			/>
 			<div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
 				<div className="sd-header">
@@ -66,10 +87,12 @@ const App = () => {
 				</div>
 				<div className="sd-body">
 					<PopUpDetails selected={state.selected} openPopup={openPopup} isOpen={isOpen}  />
-				</div>
-			</div>		
+				</div>	
+			</div>	
+			
 			{favourites.length>0&&
-				<h1 className="movie-heading">Favourites</h1>			
+				<h1 className="movie-heading">Favourites</h1>
+
 			}
 				<MovieCard
 					movies={favourites}
@@ -77,8 +100,8 @@ const App = () => {
 					handleFavouritesClick={removeFavouriteMovie}
 					buttontext={favourites}
 				    favouriteComponent={RemoveFavourites}
+					isOpen={isOpen}
 				/>				
-			<div className={`sidebar-overlay ${isOpen === true ? 'active' : ''}`} onClick={openPopup}></div>
 		</div>
 	);
 }

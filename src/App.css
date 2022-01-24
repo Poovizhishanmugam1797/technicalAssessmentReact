@@ -224,7 +224,7 @@ h1.movie-heading {
     border-radius: 5px;
   }
   .sidebar{
-      width: 480px;
+      width: 780px;
       min-height: 100vh;
       box-shadow: 0px 4px 8px rgb(0 0 0 / 16%);
       background-color: #030305;
@@ -241,7 +241,7 @@ h1.movie-heading {
   .sd-header{
     display: flex;
     align-items: center;
-    justify-content: center;  
+    margin-left:20px;
     font-size: 25px;  
     color: white;
  
@@ -262,15 +262,16 @@ h1.movie-heading {
       visibility: visible;
   }
   .sd-body{
-      padding: 15px;
+      padding: 10px;
       max-height: calc(100vh - 67px);
       /* overflow-x: hidden; */
   }
 
 .sidebarimg {
-    width: 89%;
-    border-radius: 30px;
-    margin-left: 17px;
+    width: 20%;
+    border-radius: 20px;
+    /* height: 20%; */
+    /* margin-left: 100px */
 }
   .sd-body ul{
       display: inline-block;
@@ -296,13 +297,14 @@ h1.movie-heading {
 {
     color: white;
     font-size: 20px;
+    margin-left:20px;
 }
 .synopsis
 {
     color: white;
-    font-size: 20px;
+    font-size: 15px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 34px;
+    line-height: 24px;
 }
 .image-container:hover .overlay {
 	opacity: 1;
@@ -444,8 +446,8 @@ h1.movie-heading {
   }
   .share
   {
-    width: 21px;
-    margin-left: -40px; 
+    width: 20px;
+    margin-left: -10px; 
   }
 
 .close
@@ -455,10 +457,10 @@ cursor:pointer;
 width:50px;
 }
 button.genre {
-    width: 35%;
+    width: 120px;
     height: 50px;
     transition: auto;
-    border-radius: 27px;
+    /* border-radius: 27px; */
     background: transparent;
     border: 3px solid grey;
     color:white;
@@ -466,10 +468,9 @@ button.genre {
     cursor:pointer
 }
 button.genre:hover {
-    width: 35%;
+    width: 120px;
     height: 50px;
     transition: auto;
-    border-radius: 27px;
     background: rgb(46, 45, 45);
     border: 3px solid grey;
     color:white;
