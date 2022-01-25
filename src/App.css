@@ -67,7 +67,7 @@ form button:active {
     /* margin: 0 auto 50px; */
     margin-top:50px;
     width: 29%;
-    cursor: pointer;
+    /* cursor: pointer; */
     margin-left: 47px;
 }
 
@@ -75,9 +75,10 @@ form button:active {
     -webkit-clip-path: circle(90% at 30px 30px);
     clip-path: circle(90% at 30px 30px);
     flex: 4;
+    cursor: pointer;
 }
 .movie-card-container:hover {
-	cursor: pointer;
+	/* cursor: pointer; */
 	transform: scale(1.1);
 }
 .bg-image {
@@ -101,8 +102,8 @@ form button:active {
     align-items: flex-end;
     justify-content: space-between;
     text-align: right;
-    padding: 30px 20px 30px 0;
-    z-index: 1;
+    padding: 0px 20px 30px 0;
+    /* z-index: 1; */
 }
 
 .movie-info h2 {
@@ -114,8 +115,9 @@ form button:active {
 
 .movie-info h1 {
     font-weight: bold;
-    font-size: 36px;
+    font-size: 23px;
     margin: 20px 0 0;
+    margin-bottom:10px;
 }
 
 .movie-info h4 {
@@ -166,9 +168,9 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
-h1.movie-heading {
+h2.movie-heading {
   justify-content: center;
-    margin-left: 3%;
+    margin-left: 5%;
     color: white;
     margin-top: 30px;
 }
@@ -302,12 +304,13 @@ h1.movie-heading {
 .synopsis
 {
     color: white;
-    font-size: 15px;
+    font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    line-height: 24px;
+    line-height: 34px;
 }
 .image-container:hover .overlay {
 	opacity: 1;
+    cursor: pointer;
 }
 
 .overlay {
@@ -397,9 +400,10 @@ h1.movie-heading {
   }
 
   .watchlistfav {
-    width: 150px;
-    font-size: 20px;
-    height: 60px;
+    margin-top: 5px;
+    font-size: 11px;
+    width: 100px;
+    height: 30px;
     border: none;
     outline: none;
     background: #14294e;   
@@ -482,3 +486,33 @@ button.genre:hover {
     color: white;
     font-size: 20px;
 }
+.orderBy
+{
+    background-color: none;
+    width: 20%;
+    margin-top:20px;
+    color:white;
+    margin-left:50px
+}
+.orderBy .Dropdown-menu 
+{
+    background-color: #041930;
+    position:none;
+    top:none !important;
+    position:none !important;
+}
+.orderBy .Dropdown-option 
+{
+    background-color: #041930;
+    color:white
+}
+.orderBy .Dropdown-control
+{
+    background-color: #041930 !important;
+    color:white
+}
+.orderBy .Dropdown-option.is-selected
+{    background-color: #041930 !important;
+    color: #fdf9f9 !important;
+}
+
