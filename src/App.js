@@ -59,7 +59,7 @@ const App = () => {
 			}
 		})
 	};
-	const dropDownValue = ["releasedate", "rank"]
+	const dropDownValue = ["Release Date", "Rank"]
 	const defaultOption = dropDownValue[0];
 	const saveToLocalStorage = (items) => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
