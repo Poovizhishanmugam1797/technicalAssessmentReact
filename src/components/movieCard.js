@@ -1,8 +1,8 @@
 import React from 'react';
 import "../App.css";
-import ReactStars from "react-rating-stars-component";
+import StarRatings from 'react-star-ratings';
 
-const MovieCard = ({ movies, openPopup, handleFavouritesClick, favouriteComponent, isOpen }) => {
+const MovieCard = ({ movies, openPopup, handleFavouritesClick, favouriteComponent, isOpen, buttontext, dropDownData }) => {
     const FavouriteComponent = favouriteComponent;
     return (
         <>
@@ -22,17 +22,19 @@ const MovieCard = ({ movies, openPopup, handleFavouritesClick, favouriteComponen
                                 <small className="releaseDate">Released Date: {movie.releaseDate}</small>
                             </div>
                             <h5>Rating: {movie.rank} / 5</h5>
-                            <ReactStars
-                                count={5}
-                                value={movie.rank}
-                                size={24}
-                                activeColor="#ffd700"
+                            <StarRatings
+                                rating={movie.rank}
+                                starRatedColor="#e2df15"
+                                numberOfStars={5}
+                                size={20}
+                                name='rating'
                             />
                             <button className="watchlistfav" onClick=
                                 {
                                     () =>
                                         handleFavouritesClick(movie)
-                                }>
+                                } disabled={movie.disabled === "true" && buttontext === "movies" ?
+                                    true : false}>
                                 <FavouriteComponent isOpen={isOpen} />
                             </button>
                         </div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AddFavourite = (isOpen) => {	
+const AddFavourite = () => {	
 	return (
 		<>
 			<span className='mr-2'>+ Watchlist</span>

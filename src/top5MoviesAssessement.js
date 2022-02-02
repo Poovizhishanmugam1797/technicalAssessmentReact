@@ -24,7 +24,7 @@ const movieListDetails=
       "imageUrl": "https://filmconcertslive.com/wp-content/uploads/2015/02/raiders-of-the-lost-ark-poster.jpg",
       "releaseDate": 1981,
       "link":"https://www.imdb.com/title/tt0082971/",
-      "genre":"Action"
+      "genre":"Adventure"
       
     }, {
       "id": 4,

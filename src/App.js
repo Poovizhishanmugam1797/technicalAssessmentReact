@@ -6,8 +6,12 @@ import AddFavourites from './components/AddFavourites';
 import PopUpDetails from './components/PopUpDetails';
 import RemoveFavourites from './components/RemoveFavourites';
 import Dropdown from 'react-dropdown';
+import { useSelector, useDispatch } from "react-redux";
+import { fetchMovieData, fetchSortByRank, fetchSortByReleaseDate } from './actions/index';
 import 'react-dropdown/style.css';
 const App = () => {
+	const movielist = useSelector(state => state);
+	const dispatch = useDispatch();
 	const [movies, setMovies] = useState([]);
 	const [dropDownData, setDropdownData] = useState("");
 	const [state, setState] = useState({
@@ -23,11 +27,13 @@ const App = () => {
 	const getMovieRequest = () => {
 		if (dropDownData != undefined) {
 			if (movieListDetails.components[1].type === "movie-list") {
-				movieListDetails.components[1].items.sort(function (a, b) {
-					if (dropDownData === "Rank") { return b.rank - a.rank; }
-					else if (dropDownData === "Release Date") { return a.releaseDate - b.releaseDate }
-				});
-				setMovies(movieListDetails.components[1].items);
+				if (dropDownData === "Rank") {
+					return dispatch(fetchSortByRank(movieListDetails.components[1].items))
+				}
+				else if (dropDownData === "Release Date") {
+					return dispatch(fetchSortByReleaseDate(movieListDetails.components[1].items))
+				}
+				setMovies(movielist.nameReducer?.movieList);
 				setState(prevState => {
 					return { ...prevState, results: movieListDetails.components[1].items }
 				})
@@ -44,8 +50,12 @@ const App = () => {
 		getMovieRequest();
 
 	}, [dropDownData]);
+	useEffect(() => {
+		dispatch(fetchMovieData(movieListDetails.components[1].items))
 
+	}, [])
 	const addFavouriteMovie = (movie) => {
+		movie["disabled"] = "true";
 		const newFavouriteList = [...favourites, movie];
 		const data = [...favourites];
 		newFavouriteList.map((item, index) => {
@@ -65,6 +75,7 @@ const App = () => {
 		localStorage.setItem('react-movie-app-favourites', JSON.stringify(items));
 	};
 	const removeFavouriteMovie = (movie) => {
+		movie["disabled"] = "false";
 		const newFavouriteList = favourites.filter(
 			(favourite) => favourite.title !== movie.title
 		);
@@ -87,9 +98,10 @@ const App = () => {
 				movies={movies}
 				openPopup={openPopup}
 				handleFavouritesClick={addFavouriteMovie}
-				buttontext={movies}
+				buttontext={"movies"}
 				favouriteComponent={AddFavourites}
 				isOpen={isOpen}
+				dropDownData={dropDownData}
 			/>
 			<div className={`sidebar ${isOpen === true ? 'active' : ''}`}>
 				<div className="sd-header">
@@ -108,9 +120,10 @@ const App = () => {
 				movies={favourites}
 				openPopup={openPopup}
 				handleFavouritesClick={removeFavouriteMovie}
-				buttontext={favourites}
+				buttontext={"favourites"}
 				favouriteComponent={RemoveFavourites}
 				isOpen={isOpen}
+				dropDownData={dropDownData}
 			/>
 		</div>
 	);

@@ -464,23 +464,13 @@ button.genre {
     width: 120px;
     height: 50px;
     transition: auto;
-    /* border-radius: 27px; */
     background: transparent;
-    border: 3px solid grey;
+    border: 2px solid grey;
     color:white;
     font-size:20px;
-    cursor:pointer
+    border-radius: 6px;
 }
-button.genre:hover {
-    width: 120px;
-    height: 50px;
-    transition: auto;
-    background: rgb(46, 45, 45);
-    border: 3px solid grey;
-    color:white;
-    font-size:20px;
-    cursor:pointer
-}
+
 .genreHeading
 {
     color: white;
@@ -497,9 +487,8 @@ button.genre:hover {
 .orderBy .Dropdown-menu 
 {
     background-color: #041930;
-    position:none;
     top:none !important;
-    position:none !important;
+    position:initial !important;
 }
 .orderBy .Dropdown-option 
 {
@@ -512,7 +501,21 @@ button.genre:hover {
     color:white
 }
 .orderBy .Dropdown-option.is-selected
-{    background-color: #041930 !important;
-    color: #fdf9f9 !important;
+{        background-color: #58585a !important;
+    color: #f9fd0a !important;
+}
+.watchlistfav:disabled
+{
+    background-color: #706b6b;
 }
 
+.star-container .widget-svg 
+{
+    width:13px !important;
+    height:20px
+}
+.star-container 
+{
+   padding-left:0px !important;
+   margin-top:-20px;
+}

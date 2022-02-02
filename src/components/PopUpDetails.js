@@ -1,5 +1,4 @@
 import React from 'react';
-import forward from "../assets/forward.png";
 import cross from "../assets/close.png";
 
 function PopUpDetails({ selected, openPopup, isOpen }) {
@@ -18,12 +17,6 @@ function PopUpDetails({ selected, openPopup, isOpen }) {
 							{selected.genre}
 						</button></p>
 
-					<button className="genre" onClick={(e) => {
-						e.preventDefault();
-						window.location.href = selected.link;
-					}}>
-						<img className="share" src={forward} />&nbsp;&nbsp;  Share
-					</button>
 				</p>
 				<p className="synopsis">{selected.synopsis && selected.synopsis.substr(0, 350)}</p>
 			</div>
